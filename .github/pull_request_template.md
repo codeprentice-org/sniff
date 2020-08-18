@@ -5,7 +5,7 @@ Remember, this is a shared responsibility between the developer and reviewers, a
 
 ## What will be impacted and what flows and edge cases have you tested?
 <!-- 
-- What features and areas of the product are impacted by the changes?
+- What functionalities of the library are impacted by the changes?
 - What combinations or cases have you tests?
 - What edge cases were considered?
  -->
@@ -18,5 +18,3 @@ Remember to provide good feedback!
 - Be humble, and avoid hyperbole (“NEVER do…”)
 - If it's too complex, feel free to get face-to-face time with the developer (or a design review)
 
-## Screenshots (if applicable)
-<!-- Screenshots of the UI changes (before and after in web, tablet and mobile view) -->
