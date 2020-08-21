@@ -1,10 +1,10 @@
 """ This module implements matching algorithms as described in
 https://mimesniff.spec.whatwg.org/#matching-a-mime-type-pattern"""
 
+from typing import List
 from sniffpy.mimetype import MIMEType, parse_mime_type
 from sniffpy.utils import match_mp3_header, compute_mp3_frame_size, parse_mp3_frame
 from . import constants as const
-from typing import List
 
 def match_pattern(
         resource: bytes,
@@ -38,10 +38,10 @@ def match_pattern(
 
 def match_pattern_from_table(resource: bytes, table: List[List[bytes]]):
     """
-    Utility function for looping through a table of patterns 
+    Utility function for looping through a table of patterns
     to return matching pattern
 
-    Returns: MIME Type of the row if some pattern matches 
+    Returns: MIME Type of the row if some pattern matches
     the corresponding resource or UNDEFINED otherwise.
     """
     for row in table:
