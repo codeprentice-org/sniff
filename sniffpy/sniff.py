@@ -11,7 +11,7 @@ def skip_comment(sequence: bytes, i: int, length: int) -> (int, bool):
     Skips XML in the sequence (resource)
     They are in the form <!-- comment -->
     """
- 
+
     if i + 3 <= length and sequence[i:i+3] == b'!--':
         i += 3
         while i < length:
