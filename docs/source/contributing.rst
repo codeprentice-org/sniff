@@ -6,23 +6,23 @@ Contributing to Sniffpy
 Thank you for deciding to contribute to Sniffpy. We welcome contributors of all
 levels of expertise and are willing to provide guidance when needed. This
 document outlines the steps to take to contribute and some general guidelines
-and rules about the project. 
+and rules about the project.
 
 * `Setting up the development environment`_
 * `Contributing with code`_
 * `Contributing with documentation`_
-  
+
 
 
 .. warning:: Sniffpy uses Git and Github extensively. Throughout, we will assume
 	     that you are familiar with these tools. However, if you are not
 	     not or there are concepts you need a
 	     refresher for, `this guide <https://git-scm.com/book/en/v2>`_ is an
-	     excellent resource. 
+	     excellent resource.
 
--------------------------------------------	     
+-------------------------------------------
 Setting up the development environment
--------------------------------------------	     
+-------------------------------------------
 
 Regardless of whether you are contributing to code or documentation you need to
 set up an environment in you computer. If you know how to do this you can skip
@@ -40,9 +40,9 @@ button on the top right of the page that allows you to do this.)
 Once the repository is forked you need to get a copy of it in your computer.
 There are various ways of doing this. One such way is to navigate from your
 terminal to the folder you'd like the project to be in and type: ::
-  
+
     git clone https://github.com/<YOUR-USERNAME>/sniffpy.git
-    
+
 Doing this should create a directory on your computer with the project inside of it.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,7 +60,7 @@ dependencies inside of it. If you are a Windows user you will need to first
 install GNU make. We recommend that to do this you install the
 package manager `Chocolatey <https://chocolatey.org/install>`_ and then from the
 command line or powershell run: ::
-  
+
   choco install make
 
 If everything is working properly you should be able to use the make commands
@@ -80,7 +80,7 @@ Using your virtual Environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To use your virtual environment you should go the root directory and from the
 command line type ::
-  
+
   source venv/bin/activate
 
 if you are using Mac or Linux, or::
@@ -91,7 +91,7 @@ if you are using Windows.
 To leave your virtual environment type::
 
   deactivate
-  
+
 Remember to always use your virtual environment when testing or modifying
 documents or code.
 
@@ -105,7 +105,7 @@ Contributing with code
 To make changes to your repository create a new branch.
 **NEVER** user the Master branch. A new branch can be easily created by going
 inside of the project directory and issuing the command::
-  
+
   git checkout -b <BRANCH-NAME>
 
 where ``<BRANCH-NAME>`` should be replaced by some name reflective of the changes you
@@ -121,8 +121,8 @@ and which are neccesary for any code sumbission to be accepted.
 
 * **PEP8**: All the code that you write should follow the PEP8 style guide.
   To make sure that you comply with this standard you should run ::
-    
-    make checkstyle
+
+    make stylecheck
 
   from the code root directory. Running ``make checkstyle`` should return no error.
   Code that doesn't apply PEP8 **won't** be  incorparated in the repo. If you
@@ -151,37 +151,33 @@ and which are neccesary for any code sumbission to be accepted.
   `pytest documentation <https://docs.pytest.org/en/stable/contents.html>`_ to
   get familiar with it. Before, any pull-request you should run the command ::
 
-    make tests
+    make test
 
   from the root directory to make sure that all the tests pass. Only code where
   all the tests pass will be accepted. Nevertheless, don't hesitate to ask for
   help from the mantainers when needed.
 
 
-  
+
 ^^^^^^^^^^^^^^^^^^^^^^
 Making a Pull Request
 ^^^^^^^^^^^^^^^^^^^^^^
 Once you have fixed the issue and have committed all your changes you should
 run::
-  
+
   make push
 
 from the root of the project directory.
 This will run all the tests and will check that your code follows the PEP8
 guidelines. Fix the problems in your code and re-run ``make push`` till all
 tests pass. Once all the tests pass run the command ::
-  
+
   git push
 
 and then direct yourself to your forked copy of the repo on GitHub. From there you will be
-able to make a pull request with your changes. 
+able to make a pull request with your changes.
 
 
 --------------------------------
 Contributing with documentation
 --------------------------------
-
-
-
-
