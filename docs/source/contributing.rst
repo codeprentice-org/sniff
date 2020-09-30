@@ -124,7 +124,7 @@ and which are neccesary for any code sumbission to be accepted.
 
     make stylecheck
 
-  from the code root directory. Running ``make checkstyle`` should return no error.
+  from the code root directory. Running ``make stylecheck`` should return no error.
   Code that doesn't apply PEP8 **won't** be  incorparated in the repo. If you
   are not familiar with PEP8 you can read  about it in `PEP 8
   <https://pep8.org>`_.
