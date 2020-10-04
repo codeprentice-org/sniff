@@ -19,6 +19,7 @@ virtualenv:
 	@$(SYSTEM_PYTHON) -m venv venv
 	@echo "Installing all dependencies..."
 	$(VENV_PIP) install --upgrade pip
+	$(VENV_PIP) install --upgrade setuptools wheel
 	$(VENV_PIP) install -r $(REQUIREMENTS)
 
 all:  uninstall install
