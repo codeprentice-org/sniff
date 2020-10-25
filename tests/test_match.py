@@ -103,3 +103,4 @@ class FontTypeMatching:
     def test_match_font_pattern_file(self, expected_type, resource):
         computed_type = match.match_font_type_pattern(resource)
         assert computed_type == expected_type
+        
