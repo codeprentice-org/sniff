@@ -54,17 +54,17 @@ class TestImageMatching:
         assert computed_type == expected_type
 
 class TestAudioVideoMatching:
-
+    "Testing for pattern matching of audio and video MIME types"
     def test_is_mp4_pattern(self):
         mp4_file_path = os.path.join(TEST_FILES_PATH, 'video/mp4.mp4')
-        with open(mp4_file_path, 'rb') as f:
-            resource = f.read()
+        with open(mp4_file_path, 'rb') as file:
+            resource = file.read()
             assert match.is_mp4_pattern(resource)
 
     def test_is_webm_pattern(self):
         webm_file_path = os.path.join(TEST_FILES_PATH, 'video/webm.webm')
-        with open(webm_file_path, 'rb') as f:
-            resource = f.read()
+        with open(webm_file_path, 'rb') as file:
+            resource = file.read()
             assert match.is_webm_pattern(resource)
 
     @pytest.mark.parametrize('expected_type, resource', get_resource_test_list(["audio", "video"]))
@@ -79,8 +79,9 @@ class TestAudioVideoMatching:
 
 class FontTypeMatching:
     """Class to test pattern matching of font MIME types"""
-    
-    mime_types = ['application/vnd.ms-fontobject','font/tff', 'font/otf', 'font/collection', 'font/woff', 'font/woff2']
+
+    mime_types = ['application/vnd.ms-fontobject', 'font/tff', 'font/otf', 'font/collection',
+                  'font/woff', 'font/woff2']
     content = [
         b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' +
         b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
@@ -98,9 +99,8 @@ class FontTypeMatching:
         computed_type = match.match_font_type_pattern(resource)
         actual_type = parse_mime_type(mime)
         assert computed_type == actual_type
-    
+
     @pytest.mark.parametrize('expected_type, resource', get_resource_test_list(["font"]))
     def test_match_font_pattern_file(self, expected_type, resource):
         computed_type = match.match_font_type_pattern(resource)
         assert computed_type == expected_type
-        
