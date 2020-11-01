@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 
 def check_condition(code_point: str, condition: List[str]) -> bool:
@@ -12,8 +12,7 @@ def check_condition(code_point: str, condition: List[str]) -> bool:
 def collect_code_points(str_input: str,
                         condition: List[str],
                         pos: int,
-                        exclusion: bool = True) -> (str,
-                                                    int):
+                        exclusion: bool = True) -> Tuple[str, int]:
     result = []
     while pos != len(str_input) and check_condition(
             str_input[pos], condition) ^ exclusion:
@@ -23,7 +22,7 @@ def collect_code_points(str_input: str,
 
 
 def collect_http_quoted_string(
-        str_input: str, pos: int, exact_value: bool = False) -> (str, int):
+        str_input: str, pos: int, exact_value: bool = False) -> Tuple[str, int]:
     position_start = pos
     value = ""
     assert str_input[pos] == '"'
