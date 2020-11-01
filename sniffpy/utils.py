@@ -2,7 +2,10 @@
 from typing import Tuple
 import sniffpy.constants as const
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 def parse_vint(sequence: bytes, index: int) -> Tuple[int, int]:
     """ Implementation of https://mimesniff.spec.whatwg.org/#parse-a-vint"""
     mask = 128

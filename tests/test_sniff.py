@@ -7,7 +7,11 @@ from sniffpy.mimetype import parse_mime_type
 from tests.resources import get_resource_test_list
 
 class TestSniffing:
+<<<<<<< Updated upstream
     """Implments tests pertaining to the sniff module"""
+=======
+    """Implments tests pertaining to the sniff module""" 
+>>>>>>> Stashed changes
     mime_types = [
         'text/plain',
         'text/plain',

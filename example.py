@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 import requests
 import sniffpy
+=======
+import requests, sniffpy
+>>>>>>> Stashed changes
 
 r = requests.get("https://httpbin.org/image/jpeg")
 mime_type = sniffpy.sniff(r.content) #returns a MIMEType object
