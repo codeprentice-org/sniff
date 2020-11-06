@@ -76,3 +76,25 @@ class TestAudioVideoMatching:
     def test_match_font_type_pattern(self, expected_type, resource):
         computed_type = match.match_font_type_pattern(resource)
         assert computed_type == expected_type
+
+class TestArchiveMatching:
+    """ Class to test pattern matching of archive Mimetypes"""
+
+    mime_types = ['application/x-gzip', 'application/zip', 'application/x-rar-compressed']
+    content = [
+        b'\x1F\x8B\x08',
+        b'\x50\x4B\x03\x04',
+        b'\x52\x61\x72\x20\x1A\x07\x00'
+    ]
+
+    @pytest.mark.parametrize('mime, resource', list(zip(mime_types, content)))
+    def test_match_archive_pattern(self, mime, resource):
+        computed_type = match.match_archive_type_pattern(resource)
+        actual_type = parse_mime_type(mime)
+        assert computed_type == actual_type
+
+    @pytest.mark.parametrize('expected_type, resource', get_resource_test_list(["archive"]))
+    def test_match_archive_pattern_file(self, expected_type, resource):
+        computed_type = match.match_archive_type_pattern(resource)
+        assert computed_type == expected_type
+        
