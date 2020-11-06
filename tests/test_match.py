@@ -94,8 +94,7 @@ class TestArchiveMatching:
         assert computed_type == actual_type
 
     @pytest.mark.parametrize('expected_type, resource', get_resource_test_list(["archive"]))
-    def test_match_archive_pattern(self, expected_type, resource):
+    def test_match_archive_pattern_file(self, expected_type, resource):
         computed_type = match.match_archive_type_pattern(resource)
         assert computed_type == expected_type
-        
         
