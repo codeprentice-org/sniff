@@ -104,3 +104,29 @@ class FontTypeMatching:
     def test_match_font_pattern_file(self, expected_type, resource):
         computed_type = match.match_font_type_pattern(resource)
         assert computed_type == expected_type
+
+class VideoAudioTypeMatching:
+    """Class to test pattern matching of audio MIME types"""
+
+    mime_types = ['audio/basic', 'audio/aff', 'audio/mpeg', 'audio/ogg',
+                  'font/midi', 'audio/avi, audio/wave']
+    content = [
+        b'\x2E\x73\x6E\x64',
+        b'\x46\x4F\x52\x4D\x00\x00\x00\x00\x41\x49\x46\x46',
+        b'\x49\x44\x33',
+        b'\x4F\x67\x67\x53\x00',
+        b'\x4D\x54\x68\x64\x00\x00\x00\x06',
+        b'\x52\x49\x46\x46\x00\x00\x00\x00\x41\x56\x49\x20',
+        b'\x52\x49\x46\x46\x00\x00\x00\x00\x57\x41\x56\x45'
+    ]
+
+    @pytest.mark.parametrize('mime, resource', list(zip(mime_types, content)))
+    def test_match_font_pattern(self, mime, resource):
+        computed_type = match.match_video_audio_type_pattern(resource)
+        actual_type = parse_mime_type(mime)
+        assert computed_type == actual_type
+
+    @pytest.mark.parametrize('expected_type, resource', get_resource_test_list(["audio"]))
+    def test_match_font_pattern_file(self, expected_type, resource):
+        computed_type = match.match_video_audio_type_pattern(resource)
+        assert computed_type == expected_type
