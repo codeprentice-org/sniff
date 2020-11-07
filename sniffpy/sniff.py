@@ -1,3 +1,4 @@
+from typing import Tuple
 from . import match
 from . import mimetype
 from .mimetype import MIMEType
@@ -6,7 +7,7 @@ from . import constants as const
 
 #The following functions are helper functions for sniff_mislabeled_feed
 #TODO: Rewrite the skip_* functions into one single neat parameterized function
-def skip_comment(sequence: bytes, i: int, length: int) -> (int, bool):
+def skip_comment(sequence: bytes, i: int, length: int) -> Tuple[int, bool]:
     """
     Skips XML in the sequence (resource)
     They are in the form <!-- comment -->
@@ -21,7 +22,7 @@ def skip_comment(sequence: bytes, i: int, length: int) -> (int, bool):
             i += 1
     return i, False
 
-def skip_markup_declaration(sequence: bytes, i: int, length: int) -> (int, bool):
+def skip_markup_declaration(sequence: bytes, i: int, length: int) -> Tuple[int, bool]:
     """
     Skips XML markup declarations in the sequence (resource)
     in the form <! DECLARATION >
@@ -36,7 +37,7 @@ def skip_markup_declaration(sequence: bytes, i: int, length: int) -> (int, bool)
             i += 1
     return i, False
 
-def skip_processing_instruction(sequence: bytes, i: int, length: int) -> (int, bool):
+def skip_processing_instruction(sequence: bytes, i: int, length: int) -> Tuple[int, bool]:
     """
     Skips XML processing instruction in the sequence (resource)
     They are in the form <? instruction ?>
@@ -51,7 +52,7 @@ def skip_processing_instruction(sequence: bytes, i: int, length: int) -> (int, b
             i += 1
     return i, False
 
-def handle_rdf(sequence: bytes, i: int, length: int) -> (int, MIMEType):
+def handle_rdf(sequence: bytes, i: int, length: int) -> Tuple[int, MIMEType]:
     """
     Handles Resource Description Framework
     First checks whether it is an RDF

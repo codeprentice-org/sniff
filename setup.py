@@ -5,13 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sniffpy",
-    version="0.1-dev",
+    version="1.0.0",
     author="Codeprentice",
     author_email="nb2838@columbia.edu",
     description="A package for mime-sniffing",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/codeprentice-org/sniffpy",
+    download_url='https://github.com/woberton/sniffpy/archive/1.0.0.tar.gz',
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

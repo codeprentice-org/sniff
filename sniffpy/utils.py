@@ -1,8 +1,8 @@
 """ Moudule with functions or utilities"""
+from typing import Tuple
 import sniffpy.constants as const
 
-
-def parse_vint(sequence: bytes, index: int) -> (int, int):
+def parse_vint(sequence: bytes, index: int) -> Tuple[int, int]:
     """ Implementation of https://mimesniff.spec.whatwg.org/#parse-a-vint"""
     mask = 128
     max_len = 8
@@ -112,9 +112,9 @@ def match_padded_sequence(
         return False
 
     i = 0
-    print(len(sequence))
+    #print(len(sequence))
     while i + offset + len(pattern) < len(sequence):
-        print(sequence[offset + i: offset + i + len(pattern)])
+        #print(sequence[offset + i: offset + i + len(pattern)])
         if sequence[offset + i: offset + i + len(pattern)] == pattern:
             return True
         if sequence[offset + i] != 0:
